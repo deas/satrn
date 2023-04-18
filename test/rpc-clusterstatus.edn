@@ -1,0 +1,5 @@
+[;; Simplest demo of Solr RPC
+ ;; JSON sucks because it does not allow comments. YAML may do. EDN is best.
+ {:url {:path   "/solr/admin/collections"}
+  :query-params {"action" "CLUSTERSTATUS"}}
+ ]

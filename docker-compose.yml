@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  zoo-1:
+      image: "zookeeper:3.8"
+      ports:
+        - "2181:2181"
+      # volumes:
+      #     - ./data/zoo-1:/opt/persist
+      environment:
+          ZOO_MY_ID: 1
+          # CLIENT_PORT=2181
+          # ZOO_PORT: 2181
+          ZOO_4LW_COMMANDS_WHITELIST: "cons, envi, conf, crst, srvr, stat, mntr, ruok"
+          ZOO_SERVERS: server.1=zoo-1:2888:3888;2181
+          # ZOO_SERVERS: server.1=zoo-1:2888:3888 server.2=zoo-2:2888:3888 server.3=zoo-3:2888:3888
+          # ZOO_LOG_DIR: /opt/persist/logs
+          # ZOO_DATA_LOG_DIR: /opt/persist/data
+          # ZOO_CFG_EXTRA: "metricsProvider.className=org.apache.zookeeper.metrics.prometheus.PrometheusMetricsProvider metricsProvider.httpPort=7070"
+  solr-1:
+      image: ${SOLR_IMAGE:-solr:8}
+      # deploy:
+      #   resources:
+      #     limits:
+      #       cpus: '1.0'
+      #       memory: 4gb
+      #     #reservations:
+      #     #  cpus: '1.0'
+      #     #  memory: 4gb
+      ports:
+        - 8983:8983
+      # volumes:
+      #   - ./assets/urlrewrite.xml:/opt/solr/server/solr-webapp/webapp/WEB-INF/urlrewrite.xml
+      #   - ./assets/urlrewritefilter-4.0.4.jar:/opt/solr/server/solr-webapp/webapp/WEB-INF/lib/urlrewritefilter-4.0.4.jar
+      environment:
+          # SOLR_PORT: 8081
+          # SOLR_HOME: /store/solr
+          ZK_HOST: zoo-1:2181
+          # SOLR_LOGS_DIR: /opt/logs
+          SOLR_HOST: solr-1
+          SOLR_HEAP: ${SOLR_HEAP:-}
+          SOLR_JAVA_MEM: ${SOLR_JAVA_MEM:-}
+          SOLR_LOG_LEVEL: ${SOLR_LOG_LEVEL:-INFO}
+          SOLR_OPTS: ${SOLR_OPTS:--Dlucene.cms.override_spins=false -Dsolr.sharedLib=/opt/solr/server/shared/lib}
+      depends_on:
+        - zoo-1

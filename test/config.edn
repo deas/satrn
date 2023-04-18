@@ -1,0 +1,28 @@
+;; SolrOps is the new GitOps
+{;; :pause 10000
+ :output-fn timbre-json-output-fn
+ :documentation ["We can explain a particular configuration. We display it in the UI."]
+ :sources [{;; :base-url "http://localhost:8983"
+            ;; :server-version "8.3.x"
+            :base-url "http://solr-source-1:8983"
+            ;; The following may be needed if we map one Solr Backup to multiple downstreams
+            ;; :meta-file "collections-meta-test.json"
+            ;; :basic-auth "eco-auth" ;; env variable for externalization
+            :basic-auth ["admin" ""] ;; internal
+            ;; :dest-prefix "pre-"
+            ;; :basic-auth ["solr" ""]
+            ;; The following is only for Solr Backends (not git)
+            :collections #{:sample-1}}]
+ :destination {;; :remove-unused-config false
+               :collection-to-nodes [[".*sample-1.*-xyz" ".*[012]\\..*"] ;; first match wins
+                                     [".*sample-2.*-xyz" ".*[012]\\..*"]]
+               :collection-to-params [[".*-xyz" {"tlogReplicas" "1"
+                                                 "pullReplicas" "0"
+                                                 "replicationFactor" "0" ;; NRT
+                                                 "numShards" "1"}]]
+               :base-url "http://localhost:8983"
+               ;; :search-handler "search-custom"
+               :collection-metrics {"^(sample-2|sample-1)$"
+                                    #{:update_timestamp}}
+               ;; :basic-auth "dest-auth" ;; env variable for externalization
+               :basic-auth ["solr" ""]}}

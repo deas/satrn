@@ -1,0 +1,4 @@
+{;; :lint-as {satrn.js-interop/defcmd clojure.core/defn}
+ :linters
+ {:unresolved-symbol
+  {:exclude [(satrn.js-interop/defcmd)]}}}

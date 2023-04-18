@@ -1,0 +1,9 @@
+{
+    "sample-2de-de": {
+        "shards": {
+            "shard1": {
+                "preferredLeader": "a-solrcloud-1"
+            }
+        }
+    }
+}

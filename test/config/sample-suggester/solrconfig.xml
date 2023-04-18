@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <luceneMatchVersion>7.6.0</luceneMatchVersion>
+
+  <lib dir="${solr.install.dir:../../../..}/querqy" regex=".*\.jar" />
+
+
+  <dataDir>${solr.data.dir:}</dataDir>
+
+  <directoryFactory name="DirectoryFactory"
+                    class="${solr.directoryFactory:solr.NRTCachingDirectoryFactory}"/>
+
+  <schemaFactory class="ClassicIndexSchemaFactory"/>
+  <codecFactory class="solr.SchemaCodecFactory"/>
+
+  <indexConfig>
+    <lockType>${solr.lock.type:native}</lockType>
+  </indexConfig>
+
+  <jmx />
+
+  <updateHandler class="solr.DirectUpdateHandler2">
+    <updateLog>
+      <str name="dir">${solr.ulog.dir:}</str>
+      <int name="numVersionBuckets">${solr.ulog.numVersionBuckets:65536}</int>
+    </updateLog>
+
+    <autoCommit>
+      <maxTime>${solr.autoCommit.maxTime:900000}</maxTime>
+      <openSearcher>false</openSearcher>
+    </autoCommit>
+
+    <autoSoftCommit>
+      <maxTime>${solr.autoSoftCommit.maxTime:-1}</maxTime>
+    </autoSoftCommit>
+
+  </updateHandler>
+
+  <query>
+    <maxBooleanClauses>1024</maxBooleanClauses>
+
+    <filterCache class="solr.FastLRUCache"
+                 size="512"
+                 initialSize="512"
+                 autowarmCount="0"/>
+
+    <queryResultCache class="solr.LRUCache"
+                      size="512"
+                      initialSize="512"
+                      autowarmCount="0"/>
+
+    <documentCache class="solr.LRUCache"
+                   size="512"
+                   initialSize="512"
+                   autowarmCount="0"/>
+
+    <cache name="perSegFilter"
+           class="solr.search.LRUCache"
+           size="10"
+           initialSize="0"
+           autowarmCount="10"
+           regenerator="solr.NoOpRegenerator" />
+
+    <enableLazyFieldLoading>true</enableLazyFieldLoading>
+
+    <queryResultWindowSize>20</queryResultWindowSize>
+
+    <queryResultMaxDocsCached>200</queryResultMaxDocsCached>
+
+    <listener event="newSearcher" class="solr.QuerySenderListener">
+      <arr name="queries">
+        <!--
+           <lst><str name="q">solr</str><str name="sort">price asc</str></lst>
+           <lst><str name="q">rocks</str><str name="sort">weight asc</str></lst>
+          -->
+      </arr>
+    </listener>
+    <listener event="firstSearcher" class="solr.QuerySenderListener">
+      <arr name="queries">
+        <!--
+        <lst>
+          <str name="q">static firstSearcher warming in solrconfig.xml</str>
+        </lst>
+        -->
+      </arr>
+    </listener>
+
+
+    <useColdSearcher>false</useColdSearcher>
+
+  </query>
+
+
+    <requestDispatcher>
+        <httpCaching never304="true" />
+    </requestDispatcher>
+
+  <queryParser name="querqy" class="querqy.solr.DefaultQuerqyDismaxQParserPlugin"/>
+  <searchComponent name="query" class="querqy.solr.QuerqyQueryComponent"/>
+
+
+	<requestHandler name="/suggest" class="solr.SearchHandler">
+      <lst name="defaults">
+        <str name="echoParams">explicit</str>
+        <str name="wt">json</str>
+        <str name="indent">true</str>
+        <str name="defType">querqy</str>
+
+        <str name="fq">updated_at:[NOW/DAY+1DAY-7DAYS TO NOW/DAY+1DAY]</str>
+        <str name="fq">-priority:"0.0"</str>
+        <str name="fq">has_match:true</str>
+
+        <str name="sort">score desc, priority desc</str>
+        <str name="fl">query priority</str>
+
+        <str name="mm">100%</str>
+        <str name="qf">
+          prefix_token^1
+        </str>
+
+        <str name="boost_by_phrase">{!field f=prefix v=$q}</str>
+        <str name="bf">if(query($boost_by_phrase),1,0)</str>
+
+        <str name="uq.similarityScore">off</str>
+
+        <str name="rows">15</str>
+      </lst>
+	</requestHandler>
+
+	<requestHandler name="/select" class="solr.SearchHandler" />
+
+</config>

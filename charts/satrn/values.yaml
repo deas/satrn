@@ -1,0 +1,201 @@
+# Default values for satrn helm chart.
+replicaCount: 1
+
+image:
+  repository: artifactory.cloud.mmst.eu/docker-prod/search-backend/satrn
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "2"
+
+command:
+  - "bb"
+  - "/satrn.clj"
+  - "sync"  
+
+envFrom: []
+  #- configMapRef:
+  #    name: env-configmap
+  #- secretRef:
+  #    name: env-secrets
+
+persistentVolume:
+  # storageClass:
+  accessModes:
+  - ReadWriteOnce
+  size: 100Mi
+
+# existingSecret: "satrn"
+# existingConfigMap: "satrn"
+
+# TODO: The probes can go, no?
+readinessProbe:
+  enabled: false
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+
+livenessProbe:
+  enabled: false
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceMonitor:
+  enabled: false
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+## configs for the git-sync sidecar (https://github.com/kubernetes/git-sync)
+##
+gitSync:
+  ## if the git-sync sidecar container is enabled
+  ##
+  enabled: false
+
+  ## the git-sync container image
+  ##
+  image:
+    repository: k8s.gcr.io/git-sync/git-sync
+    tag: v3.2.2
+    ## values: Always or IfNotPresent
+    pullPolicy: IfNotPresent
+    uid: 65533
+    gid: 65533
+
+  ## resource requests/limits for the git-sync container
+  ##
+  ## EXAMPLE:
+  ##   resources:
+  ##     requests:
+  ##       cpu: "50m"
+  ##       memory: "64Mi"
+  ##
+  resources: {}
+
+  ## the url of the git repo
+  ##
+  ## EXAMPLE - HTTPS:
+  ##    repo: "https://github.com/USERNAME/REPOSITORY.git"
+  ##
+  ## EXAMPLE - SSH:
+  ##    repo: "git@github.com:USERNAME/REPOSITORY.git"
+  ##
+  repo: ""
+
+  ## the sub-path (within your repo) where config is located
+  ##
+  ## NOTE:
+  ## - only config under this path (within your repo) will be seen,
+  ##   but the full repo will be cloned
+  ##
+  repoSubPath: ""
+
+  ## the git branch to check out
+  ##
+  branch: master
+
+  ## the git revision (tag or hash) to check out
+  ##
+  revision: HEAD
+
+  ## shallow clone with a history truncated to the specified number of commits
+  ##
+  depth: 1
+
+  ## the number of seconds between syncs
+  ##
+  syncWait: 60
+
+  ## the max number of seconds allowed for a complete sync
+  ##
+  syncTimeout: 120
+
+  ## the name of a pre-created Secret with git http credentials
+  ##
+  httpSecret: ""
+
+  ## the key in `config.gitSync.httpSecret` with your git username
+  ##
+  httpSecretUsernameKey: username
+
+  ## the key in `config.gitSync.httpSecret` with your git password/token
+  ##
+  httpSecretPasswordKey: password
+
+  ## the name of a pre-created Secret with git ssh credentials
+  ##
+  sshSecret: ""
+
+  ## the key in `config.gitSync.sshSecret` with your ssh-key file
+  ##
+  sshSecretKey: id_rsa
+
+  ## the name of a pre-created Secret with git ssh known hosts
+  ##
+  sshKnownHostsSecret: ""
+
+  ## the key in `config.gitSync.sshKnownHostsSecret` with your known hosts file
+  ##
+  sshKnownHostsSecretKey: known_hosts
+
+  # hookCommand: ""
+
+  webhook:
+    enabled: false
+    # command: ""
+    url: "http://localhost"
+    # successStatus: 200
+    # timeout: 1
+    # backoff: 3
+    # method: "POST"
+    # command: ""
+

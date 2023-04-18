@@ -1,0 +1,9 @@
+;; SolrOps is the new GitOps
+{:pause 10000
+ :output-fn timbre-json-output-fn
+ :sources [#_{:base-url "http://source-1:8983"
+            ;; :server-version "8.3.x"
+            :basic-auth ["admin" ""]
+            :collections #{:sample-1}}]
+ :destination {:base-url "http://localhost:8983"
+               :basic-auth ["solr" "SolrRocks"]}}

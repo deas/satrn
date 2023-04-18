@@ -1,0 +1,15 @@
+;; k6 is a very special target
+{:source-paths
+ ["src"
+  "test"]
+ :dependencies [[com.taoensso/timbre "5.1.2"]]
+ :builds
+ {;; k6 is not node, so it most likely requires esm
+  ;; ERRO [0000] no exported functions in script
+  :lib
+  {:target :node-library
+   :output-to "target/satrn.js"
+   :exports-fn node-lib/generate-exports
+   :compiler-options {:infer-externs :auto}}
+  ;; TODO: :esm target has references to js/Window - which exists in deno but not in k6
+  }}

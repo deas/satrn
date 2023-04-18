@@ -1,0 +1,8 @@
+{
+    "shards": {
+        "shard1": {
+            "preferredLeader": "a-solrcloud-1"
+        }
+    },
+    "aliases": ["a", "b"]
+}

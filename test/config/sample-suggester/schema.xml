@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
+<schema name="default-config" version="1.6">
+    <uniqueKey>id</uniqueKey>
+
+
+    <fieldType name="ngram_string" class="solr.TextField" positionIncrementGap="100">
+        <analyzer type="index">
+            <tokenizer class="solr.KeywordTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.EdgeNGramFilterFactory" minGramSize="1" maxGramSize="20"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="solr.KeywordTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+        </analyzer>
+    </fieldType>
+
+    <fieldType name="ngram_tokens" class="solr.TextField" positionIncrementGap="100">
+        <analyzer type="index">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.EdgeNGramFilterFactory" minGramSize="1" maxGramSize="20"/>
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+        </analyzer>
+    </fieldType>
+
+
+
+    <field name="query"             type="string"           multiValued="false" indexed="true" stored="true"/>
+    <field name="exact"             type="string"           multiValued="false" indexed="true" stored="true"/>
+    <field name="prefix"            type="ngram_string"     multiValued="false" indexed="true" stored="true"/>
+    <field name="prefix_token"      type="ngram_tokens"     multiValued="false" indexed="true" stored="true"/>
+    <field name="priority"          type="pdouble"          multiValued="false" indexed="true" stored="true" docValues="true"/>
+    <field name="id"                type="string"           multiValued="false" indexed="true" stored="true" required="true"/>
+    <field name="updated_at"        type="pdate"                                indexed="true" stored="true" docValues="true"/>
+    <field name="has_match"         type="boolean"          multiValued="false" indexed="true" stored="true" docValues="true"/>
+
+
+    <field name="_root_"            type="string"       docValues="false" indexed="true" stored="false"/>
+    <field name="_version_"         type="plong"        indexed="false" stored="false"/>
+
+    <fieldType name="binary" class="solr.BinaryField"/>
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+    <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+    <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+    <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+    <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+    <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+    <fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+    <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+    <fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+    <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+    <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+    <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
+    <fieldType name="strings" class="solr.StrField" sortMissingLast="true" docValues="true" multiValued="true"/>
+
+
+
+    <dynamicField name="random_*" type="random"/>
+    <dynamicField name="attr_*" type="text_general" multiValued="true" indexed="true" stored="true"/>
+    <dynamicField name="*_txt" type="text_general" indexed="true" stored="true"/>
+    <dynamicField name="*_str" type="strings" docValues="true" indexed="false" stored="false" useDocValuesAsStored="false"/>
+    <dynamicField name="*_dts" type="pdate" multiValued="true" indexed="true" stored="true"/>
+    <dynamicField name="*_is" type="pints" indexed="true" stored="true"/>
+    <dynamicField name="*_ss" type="strings" indexed="true" stored="true"/>
+    <dynamicField name="*_ls" type="plongs" indexed="true" stored="true"/>
+    <dynamicField name="*_bs" type="booleans" indexed="true" stored="true"/>
+    <dynamicField name="*_fs" type="pfloats" indexed="true" stored="true"/>
+    <dynamicField name="*_ds" type="pdoubles" indexed="true" stored="true"/>
+    <dynamicField name="*_dt" type="pdate" indexed="true" stored="true"/>
+    <dynamicField name="*_ws" type="text_ws" indexed="true" stored="true"/>
+    <dynamicField name="*_i" type="pint" indexed="true" stored="true"/>
+    <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+    <dynamicField name="*_l" type="plong" indexed="true" stored="true"/>
+    <dynamicField name="*_t" type="text_general" multiValued="false" indexed="true" stored="true"/>
+    <dynamicField name="*_b" type="boolean" indexed="true" stored="true"/>
+    <dynamicField name="*_f" type="pfloat" indexed="true" stored="true"/>
+    <dynamicField name="*_d" type="pdouble" indexed="true" stored="true"/>
+
+    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+        </analyzer>
+    </fieldType>
+    <fieldType name="ws_lower" class="solr.TextField" positionIncrementGap="100" multiValued="false">
+        <analyzer>
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+        </analyzer>
+    </fieldType>
+    <fieldType name="text_ws" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.WhitespaceTokenizerFactory"/>
+        </analyzer>
+    </fieldType>
+
+</schema>

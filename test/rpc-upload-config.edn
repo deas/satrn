@@ -1,0 +1,15 @@
+[;; JSON sucks because it does not allow comments. YAML may do. EDN is best.
+ ;;
+ {:url {:path   "/solr/admin/configs"}
+  :raw-args ["--data-binary" "@sample_techproducts_configs.zip"]
+  :headers {"Content-Type" "application/octet-stream"}
+  :query-params {"action" "UPLOAD"
+                 "name" "sample"}}
+ {:url {:path   "/solr/admin/collections"}
+  :query-params {"action" "MODIFYCOLLECTION"
+                 "collection" "sample"
+                 "collection.configName" "sample_techproducts"}}
+ {:url {:path   "/solr/admin/collections"}
+  :query-params {"action" "RELOAD"
+                 "name" "sample-1"}}
+ ]

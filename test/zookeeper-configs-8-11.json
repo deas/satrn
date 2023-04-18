@@ -1,0 +1,456 @@
+{
+  "znode": {
+    "path": "/configs",
+    "prop": {
+      "version": 0,
+      "aversion": 0,
+      "children_count": 39,
+      "ctime": "Tue Nov 30 17:11:12 UTC 2021 (1638292272836)",
+      "cversion": 39,
+      "czxid": 4294967341,
+      "ephemeralOwner": 0,
+      "mtime": "Tue Nov 30 17:11:12 UTC 2021 (1638292272836)",
+      "mzxid": 4294967341,
+      "pzxid": 4294971295,
+      "dataLength": 0
+    }
+  },
+  "tree": [
+    {
+      "text": "/configs",
+      "a_attr": {
+        "href": "admin/zookeeper?detail=true&path=%2Fconfigs"
+      },
+      "children": [
+        {
+          "text": "_default",
+          "a_attr": {
+            "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default"
+          },
+          "children": [
+            {
+              "text": "lang",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang"
+              },
+              "children": [
+                {
+                  "text": "contractions_ca.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fcontractions_ca.txt"
+                  }
+                },
+                {
+                  "text": "contractions_fr.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fcontractions_fr.txt"
+                  }
+                },
+                {
+                  "text": "contractions_ga.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fcontractions_ga.txt"
+                  }
+                },
+                {
+                  "text": "contractions_it.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fcontractions_it.txt"
+                  }
+                },
+                {
+                  "text": "hyphenations_ga.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fhyphenations_ga.txt"
+                  }
+                },
+                {
+                  "text": "stemdict_nl.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstemdict_nl.txt"
+                  }
+                },
+                {
+                  "text": "stoptags_ja.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstoptags_ja.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_ar.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_ar.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_bg.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_bg.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_ca.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_ca.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_cz.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_cz.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_da.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_da.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_de.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_de.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_el.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_el.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_en.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_en.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_es.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_es.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_et.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_et.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_eu.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_eu.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_fa.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_fa.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_fi.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_fi.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_fr.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_fr.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_ga.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_ga.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_gl.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_gl.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_hi.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_hi.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_hu.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_hu.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_hy.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_hy.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_id.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_id.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_it.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_it.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_ja.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_ja.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_lv.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_lv.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_nl.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_nl.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_no.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_no.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_pt.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_pt.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_ro.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_ro.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_ru.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_ru.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_sv.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_sv.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_th.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_th.txt"
+                  }
+                },
+                {
+                  "text": "stopwords_tr.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fstopwords_tr.txt"
+                  }
+                },
+                {
+                  "text": "userdict_ja.txt",
+                  "a_attr": {
+                    "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Flang%2Fuserdict_ja.txt"
+                  }
+                }
+              ]
+            },
+            {
+              "text": "managed-schema",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Fmanaged-schema"
+              }
+            },
+            {
+              "text": "protwords.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Fprotwords.txt"
+              }
+            },
+            {
+              "text": "solrconfig.xml",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Fsolrconfig.xml"
+              }
+            },
+            {
+              "text": "stopwords.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Fstopwords.txt"
+              }
+            },
+            {
+              "text": "synonyms.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2F_default%2Fsynonyms.txt"
+              }
+            }
+          ]
+        },
+        {
+          "text": "sample-2-8624055",
+          "a_attr": {
+            "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055"
+          },
+          "children": [
+            {
+              "text": "0_stopword_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2F0_stopword_rules.txt"
+              }
+            },
+            {
+              "text": "1_replace_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2F1_replace_rules.txt"
+              }
+            },
+            {
+              "text": "2_number_unit_config.json",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2F2_number_unit_config.json"
+              }
+            },
+            {
+              "text": "boost_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Fboost_rules.txt"
+              }
+            },
+            {
+              "text": "category_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Fcategory_rules.txt"
+              }
+            },
+            {
+              "text": "language_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Flanguage_rules.txt"
+              }
+            },
+            {
+              "text": "managed_product_lists.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Fmanaged_product_lists.txt"
+              }
+            },
+            {
+              "text": "protwords.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Fprotwords.txt"
+              }
+            },
+            {
+              "text": "rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Frules.txt"
+              }
+            },
+            {
+              "text": "schema.xml",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Fschema.xml"
+              }
+            },
+            {
+              "text": "solrconfig.xml",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-8624055%2Fsolrconfig.xml"
+              }
+            }
+          ]
+        },
+        {
+          "text": "sample-2-abcdef",
+          "a_attr": {
+            "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef"
+          },
+          "children": [
+            {
+              "text": "0_stopword_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2F0_stopword_rules.txt"
+              }
+            },
+            {
+              "text": "1_replace_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2F1_replace_rules.txt"
+              }
+            },
+            {
+              "text": "2_number_unit_config.json",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2F2_number_unit_config.json"
+              }
+            },
+            {
+              "text": "boost_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Fboost_rules.txt"
+              }
+            },
+            {
+              "text": "category_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Fcategory_rules.txt"
+              }
+            },
+            {
+              "text": "language_rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Flanguage_rules.txt"
+              }
+            },
+            {
+              "text": "managed_product_lists.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Fmanaged_product_lists.txt"
+              }
+            },
+            {
+              "text": "protwords.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Fprotwords.txt"
+              }
+            },
+            {
+              "text": "rules.txt",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Frules.txt"
+              }
+            },
+            {
+              "text": "schema.xml",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Fschema.xml"
+              }
+            },
+            {
+              "text": "solrconfig.xml",
+              "a_attr": {
+                "href": "admin/zookeeper?detail=true&path=%2Fconfigs%2Fsample-2-abcdef%2Fsolrconfig.xml"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

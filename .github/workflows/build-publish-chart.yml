@@ -1,0 +1,43 @@
+name: Package and Publish Helm Chart
+
+on:
+  workflow_dispatch:
+  # push:
+  #   paths:
+  #     - 'charts/**'
+  #     - '.github/workflows/*-chart.yml'
+  #   branches:
+  #     - 'main'
+
+env:
+  REGISTRY: artifactory.sample.eu
+  IMAGE: satrn
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set Helm Chart Version
+        id: prep
+        run: |
+          build_id=$(git rev-list --count HEAD)
+          version=$(grep ^version charts/${IMAGE}/Chart.yaml | sed -e s,'.*:\s*',,g -e s,BUILD_ID,${build_id},g)
+          sed -i -e s/"^version:.*"/"version: $version"/g charts/${IMAGE}/Chart.yaml
+          echo "::set-output name=VERSION::${version}"
+      - name: Lint Helm Chart
+        uses: WyriHaximus/github-action-helm3@v2
+        with:
+          exec: helm lint ./charts/${IMAGE}
+      - name: Package Helm Chart
+        uses: WyriHaximus/github-action-helm3@v2
+        with:
+          exec: helm package ./charts/${IMAGE}
+      - name: Publish Helm Chart
+        run: |-
+          curl -f --user ${{ secrets.REPO_USERNAME }}:${{ secrets.REPO_PASSWORD }} -X PUT https://${REGISTRY}/artifactory/helm-search/${IMAGE}-${{ steps.prep.outputs.VERSION }}.tgz --data-binary @${IMAGE}-${{ steps.prep.outputs.VERSION }}.tgz

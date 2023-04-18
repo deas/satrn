@@ -1,0 +1,7 @@
+[{:url {:path   "/solr/admin/collections"}
+  :query-params {"action" "DELETEALIAS"
+                 "name" "sample-latest"}}
+ {:url {:path   "/solr/admin/collections"}
+  :query-params {"action" "DELETE"
+                 "name" "sample-1"}}]
+  
